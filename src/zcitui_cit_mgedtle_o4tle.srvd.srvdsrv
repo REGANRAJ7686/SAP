@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZCITC_CIT_MGEDTLETLE'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZCITC_CIT_MGEDTLETLE'
+  }
+}
+define service ZCITUI_CIT_MGEDTLE_O4TLE provider contracts odata_v4_ui {
+  expose ZCITC_CIT_MGEDTLETLE;
+}

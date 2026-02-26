@@ -1,0 +1,53 @@
+managed implementation in class ZCITBP_R_CIT_MGEDTLETLE unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZCITR_CIT_MGEDTLETLE alias ZcitrCitMgedtletle
+persistent table ZCIT_MGEDTLE
+extensible
+draft table ZCITCT_MGDT_DTLE
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( readonly )
+   ID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( numbering : managed )
+   ID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZCIT_MGEDTLE corresponding extensible
+  {
+    ID = ID;
+    Firstname = FIRSTNAME;
+    Lastname = LASTNAME;
+    Age = AGE;
+    Course = COURSE;
+    Courseduration = COURSEDURATION;
+    Status = STATUS;
+    Gender = GENDER;
+    Dob = DOB;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}
